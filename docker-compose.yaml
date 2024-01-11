@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+  service1:
+    image: service1
+    ports:
+      - "5001:5001"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+
+  service2:
+    image: service2
+    ports:
+      - "5002:5002"
+    deploy:
+      replicas: 1
+      restart_policy:
+        condition: any
+    depends_on:
+      - service1
